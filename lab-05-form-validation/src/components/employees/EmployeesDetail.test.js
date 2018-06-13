@@ -5,12 +5,19 @@ import configureStore from '../../store/configure-store';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Employees Detail Component: ', () => {
-  let mockStore;
+	let mockStore;
 
-  beforeEach(() => {
-    mockStore = configureStore();
-  });
+	beforeEach(() => {
+	mockStore = configureStore();
+	});
+  
+	it('should instantiate the Employees Detail Component', () => {
+	  const component = mount(
+	    <MemoryRouter>
+	      <EmployeesDetail store={mockStore} />
+	    </MemoryRouter>
+	  );
 
-  //TODO: Implement me
-  it('should instantiate the Employees Detail Component', () => {});
+	  expect(component).toIncludeText('Employees Detail');
+	});
 });
